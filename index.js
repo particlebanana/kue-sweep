@@ -23,7 +23,7 @@
   });
 
   Queue.on('job complete', function(id) {
-    Job.get(id, function(err, job) {
+    kue.Job.get(id, function(err, job) {
       if ((err != null) || (job == null)) {
         console.warn("[kue-sweep::on job completed] fail to get job: " + id + ". error:" + err);
         return;
